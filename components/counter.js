@@ -83,3 +83,31 @@ var MultiplyDivider = React.createClass({
         );
     }
 });
+
+var GoldenCounter = React.createClass({
+    getInitialState: function() {
+        return {
+            counter: 1
+        };
+    },
+
+    multiply: function() {
+        this.setState({
+            counter: this.state.counter * 1.618
+        });
+    },
+
+    divide: function() {
+        this.setState({
+            counter: this.state.counter / 1.618
+        });
+    },
+
+    render: function() {
+        return React.createElement('div', {},
+            React.createElement('button', {onClick: this.divide}, '/1,618'),
+            React.createElement('span', {}, 'Wynik: ' + this.state.counter),
+          React.createElement('button', {onClick: this.multiply}, '*1,618')
+        );
+    }
+});
